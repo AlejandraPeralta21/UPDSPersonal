@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUREA | Fine Dining & Gastronomy — Restaurante de Alta Cocina</title>
+  <meta name="description" content="AUREA — Restaurante de alta cocina contemporánea. Explora nuestra carta de autor, especialidades del chef, promociones exclusivas y reserva tu mesa con confirmación en tiempo real.">
+
+  <!-- Favicon Monograma SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230d0c0b' stroke='%23d4af37' stroke-width='4'/><text x='50' y='65' font-family='Georgia,serif' font-size='50' font-weight='bold' fill='%23d4af37' text-anchor='middle'>A</text></svg>">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Estilos del Proyecto (Modular) -->
+  <link rel="stylesheet" href="css/temas.css">
+  <link rel="stylesheet" href="css/cliente.css">
+</head>
+<body id="inicio">
+
+  <!-- =========================================================
+       BARRA DE NAVEGACIÓN SUPERIOR Y REDES SOCIALES
+       ========================================================= -->
+  <header class="fixed-top">
+    <!-- Tira Superior de Información y Redes Sociales -->
+    <div class="top-info-bar d-none d-lg-block">
+      <div class="container-fluid px-lg-5 d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-4">
+          <span><i class="bi bi-geo-alt text-gold me-1"></i>Av. San Martín 1550, Equipetrol, Santa Cruz</span>
+          <span><i class="bi bi-clock text-gold me-1"></i>Mar - Dom: 12:00 a 23:30</span>
+          <span><a href="tel:+59133449800" class="text-decoration-none"><i class="bi bi-telephone text-gold me-1"></i>+591 3 344-9800</a></span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <span class="text-gold small fw-bold">Síguenos:</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="text-muted" title="Instagram @aurea.gastronomy"><i class="bi bi-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="text-muted" title="Facebook AUREA Fine Dining"><i class="bi bi-facebook"></i></a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="text-muted" title="TikTok @aureabolivia"><i class="bi bi-tiktok"></i></a>
+          <a href="https://wa.me/59178451230" target="_blank" rel="noopener" class="text-gold fw-bold text-decoration-none" title="WhatsApp Concierge"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de Navegación Principal -->
+    <nav class="navbar navbar-expand-lg navbar-aurea">
+      <div class="container-fluid px-lg-5">
+        <!-- Logotipo de la Marca -->
+        <a class="navbar-brand navbar-brand-aurea" href="#inicio">
+          <div class="brand-monogram">A</div>
+          <div class="brand-text-wrap">
+            <span class="brand-name">AUREA</span>
+            <span class="brand-tagline">Fine Dining & Gastronomy</span>
+          </div>
+        </a>
+
+        <!-- Botones de Acción Rápida (Móvil y Escritorio) -->
+        <div class="d-flex align-items-center gap-2 order-lg-3">
+          <!-- Contador de Favoritos -->
+          <a href="#seccion-carta" class="btn-icon-nav text-decoration-none" title="Tus Platos Favoritos">
+            <i class="bi bi-heart"></i>
+            <span id="nav-favoritos-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none; font-size: 0.65rem;">
+              0
+            </span>
+          </a>
+
+          <!-- Botón de Cambio de Tema (Sol / Luna) -->
+          <button type="button" class="btn-icon-nav btn-toggle-theme" aria-label="Cambiar tema visual" title="Cambiar tema">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+
+          <!-- Botón Menú Hamburguesa (Disponible en todas las resoluciones) -->
+          <button type="button" class="btn-icon-nav" id="btn-hamburger-toggle" aria-label="Abrir menú de navegación" title="Menú">
+            <i class="bi bi-list fs-4"></i>
+          </button>
+        </div>
+
+        <!-- Enlaces de Navegación de Escritorio -->
+        <div class="collapse navbar-collapse justify-content-center order-lg-2 d-none d-lg-block">
+          <ul class="navbar-nav mb-2 mb-lg-0 gap-1">
+            <li class="nav-item"><a class="nav-link nav-link-custom active" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#seccion-carta">Nuestra Carta</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#seccion-especialidades">Especialidades</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#seccion-promociones">Promociones</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#seccion-reservas">Reservar Mesa</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#seccion-calculadora">Consumo Estimado</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#seccion-nosotros">Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#seccion-faq">Preguntas</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#seccion-contacto">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+       PANEL LATERAL OFFCANVAS (MENÚ HAMBURGUESA)
+       ========================================================= -->
+  <div class="side-drawer-backdrop" id="side-drawer-backdrop"></div>
+  <aside class="side-drawer" id="side-drawer-nav" aria-label="Menú lateral">
+    <div class="side-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <div class="brand-monogram" style="width: 34px; height: 34px; font-size: 1.1rem;">A</div>
+        <span class="brand-name fs-5">AUREA</span>
+      </div>
+      <button type="button" class="btn-icon-nav" id="btn-close-drawer" aria-label="Cerrar menú">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="side-drawer-body">
+      <ul class="drawer-nav-list">
+        <li class="drawer-nav-item">
+          <a href="#inicio" class="drawer-nav-link"><i class="bi bi-house-door"></i> Inicio</a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#seccion-carta" class="drawer-nav-link"><i class="bi bi-book-half"></i> Nuestra Carta</a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#seccion-especialidades" class="drawer-nav-link"><i class="bi bi-award"></i> Especialidades del Chef</a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#seccion-promociones" class="drawer-nav-link"><i class="bi bi-ticket-perforated"></i> Promociones Exclusivas</a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#seccion-reservas" class="drawer-nav-link"><i class="bi bi-calendar2-check"></i> Reservar una Mesa</a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#seccion-calculadora" class="drawer-nav-link"><i class="bi bi-calculator"></i> Consumo Estimado</a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#seccion-nosotros" class="drawer-nav-link"><i class="bi bi-flower1"></i> Nosotros & Filosofía</a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#seccion-faq" class="drawer-nav-link"><i class="bi bi-question-circle"></i> Preguntas Frecuentes</a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#seccion-contacto" class="drawer-nav-link"><i class="bi bi-geo-alt"></i> Ubicación & Horarios</a>
+        </li>
+      </ul>
+
+      <hr class="border-subtle my-3">
+
+      <!-- Información Rápida en Drawer Móvil -->
+      <div class="p-3 bg-card-custom rounded-3 border-subtle mb-3">
+        <div class="small fw-bold text-gold mb-1"><i class="bi bi-clock me-1"></i>Horario de Atención:</div>
+        <div class="small text-muted mb-2">Mar - Dom: 12:00 a 23:30 (Lunes cerrado)</div>
+
+        <div class="small fw-bold text-gold mb-1"><i class="bi bi-geo-alt me-1"></i>Dirección:</div>
+        <div class="small text-muted mb-3">Av. San Martín 1550, Equipetrol, Santa Cruz</div>
+
+        <a href="https://wa.me/59178451230" target="_blank" rel="noopener" class="btn btn-outline-gold btn-sm w-100 text-center">
+          <i class="bi bi-whatsapp me-1"></i>Concierge WhatsApp (+591 78451230)
+        </a>
+      </div>
+
+      <!-- Redes Sociales en Drawer -->
+      <div class="mb-3">
+        <span class="small text-muted text-uppercase fw-bold d-block mb-2">Redes Sociales Oficiales:</span>
+        <div class="d-flex gap-2">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon-btn" title="TikTok"><i class="bi bi-tiktok"></i></a>
+          <a href="https://wa.me/59178451230" target="_blank" rel="noopener" class="social-icon-btn" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column gap-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="small text-muted">Preferencia de tema:</span>
+          <button type="button" class="btn btn-sm btn-outline-gold btn-toggle-theme">
+            <i class="bi bi-sun-fill me-1"></i>Alternar Modo
+          </button>
+        </div>
+
+        <a href="admin.html" class="btn btn-outline-secondary btn-sm d-flex align-items-center justify-content-center gap-2">
+          <i class="bi bi-shield-lock"></i> Acceso Administrativo
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       SECCIÓN 1: HERO / PORTADA GASTRONÓMICA
+       ========================================================= -->
+  <header class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-8 col-xl-7">
+          <div class="hero-badge-pill">
+            <i class="bi bi-stars"></i> Alta Gastronomía Contemporánea
+          </div>
+          <h1 class="hero-title text-white">
+            AUREA — <span class="text-gold">El arte de saborear</span> cada momento.
+          </h1>
+          <p class="hero-subtitle">
+            "Una experiencia gastronómica donde cada ingrediente cuenta una historia de nobleza, técnica y pasión culinaria."
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 pt-2">
+            <a href="#seccion-carta" class="btn-gold">
+              <i class="bi bi-compass me-2"></i>Explorar nuestra carta
+            </a>
+            <a href="#seccion-reservas" class="btn-outline-gold">
+              <i class="bi bi-calendar-event me-2"></i>Reservar una mesa
+            </a>
+          </div>
+
+          <div class="d-flex align-items-center gap-4 mt-5 pt-3 border-top-subtle">
+            <div>
+              <div class="text-gold fw-bold fs-4">12</div>
+              <div class="text-muted small">Categorías de Autor</div>
+            </div>
+            <div class="vr bg-secondary opacity-25"></div>
+            <div>
+              <div class="text-gold fw-bold fs-4">60s</div>
+              <div class="text-muted small">Reserva Garantizada</div>
+            </div>
+            <div class="vr bg-secondary opacity-25"></div>
+            <div>
+              <div class="text-gold fw-bold fs-4">4.9/5</div>
+              <div class="text-muted small">Excelencia Michelin Guide</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TIRA DE ATRIBUTOS DISTINTIVOS -->
+  <section class="hero-features-strip">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="feature-item-hero">
+            <div class="feature-icon-wrap"><i class="bi bi-award"></i></div>
+            <div>
+              <h4 class="h6 mb-1 text-main">Técnica de Autor</h4>
+              <p class="small text-muted mb-0">Dirigida por el galardonado Chef Fernando Arrieta.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="feature-item-hero">
+            <div class="feature-icon-wrap"><i class="bi bi-tree"></i></div>
+            <div>
+              <h4 class="h6 mb-1 text-main">Huerto Orgánico</h4>
+              <p class="small text-muted mb-0">Vegetales y brotes cosechados frescos cada amanecer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="feature-item-hero">
+            <div class="feature-icon-wrap"><i class="bi bi-cup-straw"></i></div>
+            <div>
+              <h4 class="h6 mb-1 text-main">Cava Seleccionada</h4>
+              <p class="small text-muted mb-0">Etiquetas exclusivas y mixología botánica sin alcohol.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="feature-item-hero">
+            <div class="feature-icon-wrap"><i class="bi bi-stopwatch"></i></div>
+            <div>
+              <h4 class="h6 mb-1 text-main">Reserva en Vivo</h4>
+              <p class="small text-muted mb-0">Disponibilidad instantánea con temporizador de 60s.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECCIÓN 2: NUESTRA CARTA / CATÁLOGO GASTRONÓMICO
+       ========================================================= -->
+  <section id="seccion-carta" class="py-5">
+    <div class="container py-lg-4">
+      <!-- Encabezado de Sección -->
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="text-gold text-uppercase fw-bold small letter-spacing-2">Experiencia Culinaria</span>
+        <h2 class="display-5 fw-bold mt-1 mb-3">Nuestra Carta Gastronómica</h2>
+        <p class="text-muted">
+          Cada plato es una armonía de texturas y aromas creada con técnicas vanguardistas e insumos nobles con denominación de origen.
+        </p>
+      </div>
+
+      <!-- Barra de Filtros y Búsqueda -->
+      <div class="catalog-filter-bar">
+        <!-- Pestañas de Categorías Principales (12 Categorías) -->
+        <div class="filter-categories-scroll mb-3" id="filter-categorias-container">
+          <!-- Renderizado dinámico desde js/filtros.js -->
+        </div>
+
+        <!-- Subcategorías Dinámicas de la Categoría Activa -->
+        <div class="d-flex flex-wrap gap-2 mb-3" id="filter-subcategorias-container" style="display: none;">
+          <!-- Inyectado por js/filtros.js -->
+        </div>
+
+        <div class="row g-3 align-items-center">
+          <!-- Buscador con Atajo '/' -->
+          <div class="col-12 col-md-6 col-lg-5">
+            <div class="search-input-wrap">
+              <i class="bi bi-search search-icon"></i>
+              <input
+                type="text"
+                class="form-control"
+                id="catalogo-busqueda"
+                placeholder="Buscar por plato, ingrediente o corte..."
+                aria-label="Buscar en la carta"
+              />
+              <span class="search-kbd-hint" title="Presiona la tecla / para buscar">/</span>
+            </div>
+          </div>
+
+          <!-- Select Ordenamiento -->
+          <div class="col-6 col-md-3 col-lg-3">
+            <select class="form-select form-select-custom" id="filtro-orden-select" aria-label="Ordenar platos">
+              <option value="popular">Ordenar por: Destacados</option>
+              <option value="precio-asc">Precio: Menor a Mayor</option>
+              <option value="precio-desc">Precio: Mayor a Menor</option>
+              <option value="nombre-asc">Nombre: A - Z</option>
+              <option value="nombre-desc">Nombre: Z - A</option>
+              <option value="tiempo">Tiempo de preparación</option>
+            </select>
+          </div>
+
+          <!-- Selector de Picante -->
+          <div class="col-6 col-md-3 col-lg-2">
+            <select class="form-select form-select-custom" id="filtro-picante-select" aria-label="Nivel de picante">
+              <option value="todos">Picante: Todos</option>
+              <option value="0">Sin picante (0)</option>
+              <option value="1">Picante Suave (1)</option>
+              <option value="2">Picante Medio (2)</option>
+              <option value="3">Picante Intenso (3)</option>
+            </select>
+          </div>
+
+          <!-- Botón Filtros Adicionales / Slider -->
+          <div class="col-12 col-lg-2 text-lg-end">
+            <button class="btn btn-outline-secondary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFiltrosAvanzados">
+              <i class="bi bi-sliders me-1"></i>Filtros +
+            </button>
+          </div>
+        </div>
+
+        <!-- Panel Desplegable de Filtros Avanzados -->
+        <div class="collapse mt-3 pt-3 border-top-subtle" id="collapseFiltrosAvanzados">
+          <div class="row g-4 align-items-center">
+            <!-- Rango de Precio -->
+            <div class="col-12 col-md-6 col-lg-5">
+              <label for="filtro-precio-slider" class="form-label-custom d-flex justify-content-between">
+                <span>Precio Máximo:</span>
+                <span class="text-gold fw-bold">Bs. <span id="filtro-precio-val">400</span></span>
+              </label>
+              <input type="range" class="form-range" id="filtro-precio-slider" min="30" max="400" step="5" value="400">
+            </div>
+
+            <!-- Switch Vegetariano -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-check form-switch pt-md-3">
+                <input class="form-check-input" type="checkbox" role="switch" id="filtro-vegetariano-check">
+                <label class="form-check-label small" for="filtro-vegetariano-check">
+                  <i class="bi bi-flower1 text-success me-1"></i>Mostrar solo creaciones vegetarianas
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chips de Filtros Activos -->
+        <div class="mt-3 pt-2" id="filtros-chips-activos" style="display: none;">
+          <!-- Chips renderizados dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Contador de Resultados -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <span class="text-muted small" id="catalogo-contador">Cargando creaciones culinarias...</span>
+      </div>
+
+      <!-- Grilla de Tarjetas Gastronómicas -->
+      <div class="row g-4" id="catalogo-grid">
+        <!-- Inyectado dinámicamente por js/catalogo.js -->
+      </div>
+
+      <!-- Estado Vacío Cuando no hay Coincidencias -->
+      <div id="catalogo-vacio" class="text-center py-5" style="display: none;">
+        <i class="bi bi-search fs-1 text-gold d-block mb-3"></i>
+        <h4 class="mb-2">No encontramos platos con los criterios seleccionados</h4>
+        <p class="text-muted mb-4">Intenta ajustar los filtros de precio, picante o término de búsqueda.</p>
+        <button type="button" class="btn btn-outline-gold" id="btn-vaciar-filtros-vacio">
+          <i class="bi bi-arrow-counterclockwise me-2"></i>Restablecer todos los filtros
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MODAL FICHA DETALLADA DE PLATO GASTRONÓMICO
+       ========================================================= -->
+  <div class="modal-custom" id="modal-detalle-plato" role="dialog" aria-modal="true" aria-labelledby="modal-plato-titulo">
+    <div class="modal-custom-dialog">
+      <button type="button" class="btn-close-modal" aria-label="Cerrar ventana">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <div class="row g-0">
+        <!-- Imagen Ampliada -->
+        <div class="col-lg-5">
+          <div class="h-100 position-relative" style="min-height: 280px;">
+            <img id="modal-plato-img" src="" alt="" class="w-100 h-100" style="object-fit: cover;" />
+            <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(180deg, transparent 0%, rgba(13,12,11,0.95) 100%);">
+              <span class="badge bg-gold text-dark fs-6" id="modal-plato-precio">Bs. 0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenido y Ficha Técnica -->
+        <div class="col-lg-7 p-4 p-md-5 d-flex flex-column">
+          <div class="small text-muted text-uppercase mb-1" id="modal-plato-categoria">Categoría</div>
+          <h3 class="h2 mb-2 font-serif-title" id="modal-plato-titulo">Nombre del Plato</h3>
+
+          <div class="d-flex flex-wrap gap-3 small text-muted mb-3">
+            <span id="modal-plato-porcion"><i class="bi bi-box-seam me-1"></i>Porción</span>
+            <span id="modal-plato-tiempo"><i class="bi bi-clock me-1"></i>Tiempo</span>
+          </div>
+
+          <p class="text-secondary mb-3" id="modal-plato-desc" style="line-height: 1.6;"></p>
+
+          <div id="modal-plato-chef" class="mb-3"></div>
+
+          <!-- Ingredientes -->
+          <div class="mb-3">
+            <h5 class="h6 text-gold mb-2"><i class="bi bi-basket me-1"></i>Ingredientes Principales:</h5>
+            <div id="modal-plato-ingredientes"></div>
+          </div>
+
+          <!-- Alérgenos -->
+          <div id="modal-plato-alergenos" class="mb-4"></div>
+
+          <!-- Platos Relacionados -->
+          <div class="mb-4">
+            <h6 class="small text-muted text-uppercase fw-bold mb-2">Creaciones Relacionadas de la Misma Categoría:</h6>
+            <div class="row g-2" id="modal-plato-relacionados"></div>
+          </div>
+
+          <div class="mt-auto pt-3 border-top-subtle d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-gold btn-sm" id="modal-btn-add-consumo">
+              <i class="bi bi-plus-circle me-1"></i>Añadir a Consumo Estimado
+            </button>
+            <button type="button" class="btn btn-outline-secondary btn-sm btn-close-modal">
+              Cerrar Ficha
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SECCIÓN 3: ESPECIALIDADES DEL CHEF (INTERACTIVA JQUERY)
+       ========================================================= -->
+  <section id="seccion-especialidades" class="py-5 bg-surface">
+    <div class="container py-lg-4">
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+          <span class="text-gold text-uppercase fw-bold small letter-spacing-2">Creaciones de Autor</span>
+          <h2 class="display-6 fw-bold mt-1">Especialidades del Chef Ejecutivo</h2>
+          <p class="text-muted">
+            Selecciona una vertiente gastronómica para explorar el universo de sabores que define a AUREA. Observa cómo cambia dinámicamente la ambientación.
+          </p>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <div class="btn-group" role="group" aria-label="Especialidades">
+            <button type="button" class="btn btn-outline-gold pill-especialidad-selector active" data-esp="trufa">
+              <i class="bi bi-gem me-1"></i>Trufa & Maduración
+            </button>
+            <button type="button" class="btn btn-outline-gold pill-especialidad-selector" data-esp="mar">
+              <i class="bi bi-water me-1"></i>Tributo Oceánico
+            </button>
+            <button type="button" class="btn btn-outline-gold pill-especialidad-selector" data-esp="huerto">
+              <i class="bi bi-flower1 me-1"></i>Huerto Botánico
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenedor con Cambio Dinámico de Fondo y Estilo -->
+      <div class="p-4 p-md-5 rounded-4 border-medium" id="box-especialidad-destacada" style="background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.18) 0%, rgba(23, 19, 17, 0.98) 70%);">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-gem fs-1 text-gold me-3" id="esp-icono"></i>
+              <div>
+                <span class="badge bg-gold text-dark mb-1">Insignia AUREA</span>
+                <h3 class="h2 mb-0 font-serif-title" id="esp-titulo">Sinfonía de Trufa Blanca & Terroir</h3>
+              </div>
+            </div>
+            <p class="text-secondary fs-5 mb-4" id="esp-desc" style="line-height: 1.5;">
+              Una exploración sensorial de trufas silvestres de Alba, mantequilla de pasturas altas y carnes maduradas en seco a fuego lento.
+            </p>
+
+            <div class="p-3 bg-card-custom rounded-3 mb-4">
+              <div class="small text-muted"><i class="bi bi-cup-straw text-gold me-2"></i><strong>Maridaje Recomendado:</strong></div>
+              <div class="text-light" id="esp-maridaje">Infusión botánica de flor de sauco y perlas cítricas</div>
+            </div>
+
+            <a href="#seccion-reservas" class="btn-gold">
+              <i class="bi bi-calendar-check me-2"></i>Reservar esta experiencia
+            </a>
+          </div>
+
+          <div class="col-lg-5 text-center">
+            <img
+              id="esp-img"
+              src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80"
+              alt="Especialidad AUREA"
+              class="img-fluid rounded-4 shadow-lg border-subtle"
+              style="max-height: 360px; width: 100%; object-fit: cover;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECCIÓN 4: PROMOCIONES EXCLUSIVAS
+       ========================================================= -->
+  <section id="seccion-promociones" class="py-5">
+    <div class="container py-lg-4">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="text-gold text-uppercase fw-bold small letter-spacing-2">Beneficios Selectos</span>
+        <h2 class="display-5 fw-bold mt-1 mb-3">Promociones & Menús Especiales</h2>
+        <p class="text-muted">
+          Propuestas diseñadas para convertir veladas románticas, reuniones de negocios o celebraciones familiares en momentos inolvidables.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Promo 1: Cena Romántica -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card bg-card-custom h-100 overflow-hidden border-subtle">
+            <div class="position-relative" style="height: 200px;">
+              <img src="https://images.unsplash.com/photo-1529516548873-9ce57c8f155e?auto=format&fit=crop&w=800&q=80" alt="Cena Romántica" class="w-100 h-100" style="object-fit: cover;" />
+              <span class="badge bg-gold text-dark position-absolute top-0 end-0 m-3 fs-6">20% OFF</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <span class="text-gold small fw-bold text-uppercase mb-1"><i class="bi bi-heart me-1"></i>En Pareja</span>
+              <h4 class="h5 mb-2 font-serif-title">Cena Romántica AUREA</h4>
+              <p class="small text-muted mb-3 flex-grow-1">Incluye 2 copas de bienvenida, entrada para compartir, 2 platos fuertes y la Esfera de Chocolate Valrhona.</p>
+              <div class="border-top-subtle pt-3 d-flex justify-content-between align-items-center">
+                <span class="small text-muted"><i class="bi bi-clock me-1"></i>Mar a Jue</span>
+                <a href="#seccion-reservas" class="btn btn-outline-gold btn-sm">Reservar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo 2: Menú Ejecutivo -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card bg-card-custom h-100 overflow-hidden border-subtle">
+            <div class="position-relative" style="height: 200px;">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Menú Ejecutivo" class="w-100 h-100" style="object-fit: cover;" />
+              <span class="badge bg-gold text-dark position-absolute top-0 end-0 m-3 fs-6">15% OFF</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <span class="text-gold small fw-bold text-uppercase mb-1"><i class="bi bi-briefcase me-1"></i>Almuerzo</span>
+              <h4 class="h5 mb-2 font-serif-title">Menú Ejecutivo Haute Cuisine</h4>
+              <p class="small text-muted mb-3 flex-grow-1">Entrada del día, plato fuerte a elección de nuestra carta de pastas o aves, café Geisha de cortesía y petit fours.</p>
+              <div class="border-top-subtle pt-3 d-flex justify-content-between align-items-center">
+                <span class="small text-muted"><i class="bi bi-clock me-1"></i>Lun a Vie 12:00</span>
+                <a href="#seccion-reservas" class="btn btn-outline-gold btn-sm">Reservar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo 3: Experiencia Gourmet Degustación -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card bg-card-custom h-100 overflow-hidden border-subtle">
+            <div class="position-relative" style="height: 200px;">
+              <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Experiencia Degustación" class="w-100 h-100" style="object-fit: cover;" />
+              <span class="badge bg-gold text-dark position-absolute top-0 end-0 m-3 fs-6">25% OFF</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <span class="text-gold small fw-bold text-uppercase mb-1"><i class="bi bi-award me-1"></i>Exclusivo</span>
+              <h4 class="h5 mb-2 font-serif-title">Experiencia Gourmet Degustación</h4>
+              <p class="small text-muted mb-3 flex-grow-1">7 tiempos de autor con precio conmemorativo reservando con 48h de anticipación para mesas de 2 o más comensales.</p>
+              <div class="border-top-subtle pt-3 d-flex justify-content-between align-items-center">
+                <span class="small text-muted"><i class="bi bi-clock me-1"></i>Miércoles Noche</span>
+                <a href="#seccion-reservas" class="btn btn-outline-gold btn-sm">Reservar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECCIÓN 5: CALCULADORA DE CONSUMO ESTIMADO (ADAPTADA)
+       ========================================================= -->
+  <section id="seccion-calculadora" class="py-5 bg-surface">
+    <div class="container py-lg-4">
+      <div class="row align-items-center mb-4">
+        <div class="col-lg-8">
+          <span class="text-gold text-uppercase fw-bold small letter-spacing-2">Herramienta Culinaria</span>
+          <h2 class="display-6 fw-bold mt-1">Calculador de Consumo Estimado</h2>
+          <p class="text-muted mb-0">
+            Planifica tu velada añadiendo platos desde nuestra carta. Este cálculo es orientativo y ayuda a estimar tu inversión gastronómica previa a la reserva.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+          <button type="button" class="btn btn-outline-danger btn-sm" id="btn-vaciar-calculadora">
+            <i class="bi bi-trash me-1"></i>Vaciar Calculadora
+          </button>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Lista de Items Añadidos -->
+        <div class="col-lg-8">
+          <div class="calculator-card h-100">
+            <div class="d-flex justify-content-between align-items-center pb-3 border-bottom-subtle mb-3">
+              <h5 class="h6 mb-0 text-main"><i class="bi bi-card-checklist me-2 text-gold"></i>Platos Seleccionados</h5>
+              <span class="badge bg-gold text-dark" id="calc-badge-count">0 items</span>
+            </div>
+
+            <div id="calculadora-items-lista">
+              <!-- Inyectado por js/reservas.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumen de Costos y Sugerencia de Servicio -->
+        <div class="col-lg-4">
+          <div class="calculator-card h-100 d-flex flex-column">
+            <h5 class="h6 pb-3 border-bottom-subtle text-gold mb-3">
+              <i class="bi bi-receipt me-2"></i>Resumen Orientativo
+            </h5>
+
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-muted">Subtotal Platos:</span>
+              <strong id="calc-subtotal" class="font-monospace">Bs. 0.00</strong>
+            </div>
+
+            <div class="form-check form-switch my-3">
+              <input class="form-check-input" type="checkbox" role="switch" id="calc-check-servicio" checked>
+              <label class="form-check-label small text-muted" for="calc-check-servicio">
+                Incluir servicio / propina sugerida (10%)
+              </label>
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+              <span class="text-muted">Servicio Sugerido (10%):</span>
+              <span id="calc-servicio" class="font-monospace text-muted">Bs. 0.00</span>
+            </div>
+
+            <div class="p-3 bg-elevated rounded-3 mt-auto mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Total Estimado:</span>
+                <span class="h4 mb-0 text-gold fw-bold font-serif-title" id="calc-total">Bs. 0.00</span>
+              </div>
+              <div class="small text-muted mt-1" style="font-size: 0.72rem;">
+                * No representa cobro anticipado. El pago se efectúa al finalizar tu visita.
+              </div>
+            </div>
+
+            <a href="#seccion-reservas" class="btn-gold w-100 text-center">
+              <i class="bi bi-arrow-down-circle me-2"></i>Pasar a Formulario de Reserva
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECCIÓN 6: RESERVAS DE MESAS (CON TEMPORIZADOR DE 60s)
+       ========================================================= -->
+  <section id="seccion-reservas" class="py-5">
+    <div class="container py-lg-4">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="text-gold text-uppercase fw-bold small letter-spacing-2">Garantía Inmediata</span>
+        <h2 class="display-5 fw-bold mt-1 mb-3">Reserva de Mesas Exclusivas</h2>
+        <p class="text-muted">
+          Asegura tu lugar en nuestro salón principal, terraza iluminada o salas privadas. Al enviar tus datos, dispondrás de <strong>60 segundos</strong> para confirmar tu reservación.
+        </p>
+      </div>
+
+      <div class="row g-5">
+        <!-- Columna Izquierda: Ambientes y Tipos de Mesas -->
+        <div class="col-lg-5">
+          <div class="p-4 rounded-4 bg-card-custom border-subtle h-100">
+            <h4 class="h5 font-serif-title text-gold mb-3">
+              <i class="bi bi-geo-alt me-2"></i>Zonas del Restaurante
+            </h4>
+
+            <div class="list-group list-group-flush bg-transparent mb-4">
+              <div class="list-group-item bg-transparent px-0 py-3 border-bottom-subtle">
+                <h6 class="mb-1 text-main"><i class="bi bi-door-open text-gold me-2"></i>Salón Principal</h6>
+                <p class="small text-muted mb-0">Iluminación íntima, mesas amplias y vista a la cava de vinos.</p>
+              </div>
+              <div class="list-group-item bg-transparent px-0 py-3 border-bottom-subtle">
+                <h6 class="mb-1 text-main"><i class="bi bi-cloud-sun text-gold me-2"></i>Terraza Exterior</h6>
+                <p class="small text-muted mb-0">Ambiente abierto con calefactores y vegetación exuberante.</p>
+              </div>
+              <div class="list-group-item bg-transparent px-0 py-3 border-bottom-subtle">
+                <h6 class="mb-1 text-main"><i class="bi bi-shield-lock text-gold me-2"></i>Área Privada</h6>
+                <p class="small text-muted mb-0">Salón exclusivo para reuniones corporativas o aniversarios familiares.</p>
+              </div>
+              <div class="list-group-item bg-transparent px-0 py-3 border-bottom-subtle">
+                <h6 class="mb-1 text-main"><i class="bi bi-stars text-gold me-2"></i>Zona VIP</h6>
+                <p class="small text-muted mb-0">Balcón elevado con servicio personalizado de sommelier.</p>
+              </div>
+            </div>
+
+            <div class="p-3 bg-elevated rounded-3">
+              <div class="small fw-bold text-gold mb-1"><i class="bi bi-info-circle me-1"></i>Política de Puntualidad:</div>
+              <div class="small text-muted">
+                Las reservas confirmadas tienen una tolerancia de 15 minutos. Pasado ese tiempo, la mesa queda liberada para otros comensales.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Formulario de Reserva -->
+        <div class="col-lg-7">
+          <div class="p-4 p-md-5 rounded-4 bg-card-custom border-medium shadow-sm">
+            <form id="form-reserva" novalidate>
+              <div class="row g-3">
+                <!-- Nombre Completo -->
+                <div class="col-12 col-md-6">
+                  <label for="res-nombre" class="form-label-custom">Nombre Completo *</label>
+                  <input type="text" class="form-control form-control-custom" id="res-nombre" placeholder="Ej. Alejandra Peralta" required>
+                </div>
+
+                <!-- Teléfono Celular -->
+                <div class="col-12 col-md-6">
+                  <label for="res-telefono" class="form-label-custom">Celular (Bolivia) *</label>
+                  <input type="tel" class="form-control form-control-custom" id="res-telefono" placeholder="Ej. 71234567" required>
+                </div>
+
+                <!-- Correo Electrónico -->
+                <div class="col-12">
+                  <label for="res-correo" class="form-label-custom">Correo Electrónico *</label>
+                  <input type="email" class="form-control form-control-custom" id="res-correo" placeholder="nombre@correo.com" required>
+                </div>
+
+                <!-- Fecha -->
+                <div class="col-12 col-md-4">
+                  <label for="res-fecha" class="form-label-custom">Fecha *</label>
+                  <input type="date" class="form-control form-control-custom" id="res-fecha" required>
+                </div>
+
+                <!-- Hora -->
+                <div class="col-12 col-md-4">
+                  <label for="res-hora" class="form-label-custom">Hora *</label>
+                  <select class="form-select form-select-custom" id="res-hora" required>
+                    <option value="">Selecciona hora...</option>
+                    <option value="12:30">12:30 PM (Almuerzo)</option>
+                    <option value="13:30">01:30 PM (Almuerzo)</option>
+                    <option value="14:30">02:30 PM (Almuerzo)</option>
+                    <option value="19:30">07:30 PM (Cena)</option>
+                    <option value="20:30" selected>08:30 PM (Cena)</option>
+                    <option value="21:30">09:30 PM (Cena)</option>
+                    <option value="22:00">10:00 PM (Cena)</option>
+                  </select>
+                </div>
+
+                <!-- Número de Personas -->
+                <div class="col-12 col-md-4">
+                  <label for="res-personas" class="form-label-custom">Comensales *</label>
+                  <input type="number" class="form-control form-control-custom" id="res-personas" min="1" max="12" value="2" required>
+                </div>
+
+                <!-- Tipo de Mesa -->
+                <div class="col-12 col-md-6">
+                  <label for="res-tipo-mesa" class="form-label-custom">Tipo de Mesa *</label>
+                  <select class="form-select form-select-custom" id="res-tipo-mesa" required>
+                    <option value="Mesa para dos" selected>Mesa para dos (1 a 2 pers.)</option>
+                    <option value="Mesa familiar">Mesa familiar (3 a 5 pers.)</option>
+                    <option value="Mesa grupal">Mesa grupal (6 a 8 pers.)</option>
+                    <option value="Mesa VIP">Mesa VIP Exclusiva (hasta 6 pers.)</option>
+                  </select>
+                </div>
+
+                <!-- Zona del Restaurante -->
+                <div class="col-12 col-md-6">
+                  <label for="res-zona" class="form-label-custom">Zona Preferida *</label>
+                  <select class="form-select form-select-custom" id="res-zona" required>
+                    <option value="Salón principal" selected>Salón Principal (Clásico)</option>
+                    <option value="Terraza">Terraza Exterior</option>
+                    <option value="Área privada">Área Privada</option>
+                    <option value="Zona VIP">Zona VIP Balcón</option>
+                  </select>
+                </div>
+
+                <!-- Ocasión Especial -->
+                <div class="col-12">
+                  <label for="res-ocasion" class="form-label-custom">Ocasión Especial (Opcional)</label>
+                  <select class="form-select form-select-custom" id="res-ocasion">
+                    <option value="Cena Casual">Cena casual / Gastronomía</option>
+                    <option value="Aniversario">Aniversario de Pareja</option>
+                    <option value="Cumpleaños">Celebración de Cumpleaños</option>
+                    <option value="Negocios">Reunión de Negocios</option>
+                    <option value="Propuesta">Propuesta Especial</option>
+                  </select>
+                </div>
+
+                <!-- Observaciones -->
+                <div class="col-12">
+                  <label for="res-observaciones" class="form-label-custom">Alergias o Solicitudes Especiales</label>
+                  <textarea class="form-control form-control-custom" id="res-observaciones" rows="2" placeholder="Ej. Restricción al gluten, silla para bebé o mesa cerca a ventana..."></textarea>
+                </div>
+
+                <!-- Checkbox Términos -->
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="res-terminos" required>
+                    <label class="form-check-label small text-muted" for="res-terminos">
+                      Acepto las condiciones de reserva y entiendo que tendré 60 segundos para confirmarla en pantalla.
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Botón Submit -->
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn-gold w-100 py-3 fs-6" id="btn-submit-reserva">
+                    <i class="bi bi-clock-history me-2"></i>Reservar mesa & Iniciar Confirmación
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MODAL DE CONFIRMACIÓN CON TEMPORIZADOR DE 60 SEGUNDOS
+       ========================================================= -->
+  <div class="modal-custom" id="modal-temporizador-reserva" role="dialog" aria-modal="true">
+    <div class="modal-custom-dialog p-4 p-md-5" style="max-width: 580px;">
+      <button type="button" class="btn-close-modal" aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+
+      <div class="text-center mb-4">
+        <span class="badge bg-warning text-dark text-uppercase px-3 py-2 mb-2 fw-bold">
+          <i class="bi bi-hourglass-split me-1"></i>Pendiente de Confirmación
+        </span>
+        <h3 class="h3 font-serif-title mb-1">Confirma tu Mesa en AUREA</h3>
+        <p class="text-muted small">Tienes exactamente 60 segundos para validar y asegurar tu reserva.</p>
+      </div>
+
+      <!-- Reloj Cuenta Regresiva -->
+      <div class="timer-countdown-box">
+        <div class="small text-uppercase text-muted fw-bold mb-1 letter-spacing-2">Tiempo Restante:</div>
+        <div class="timer-digits font-monospace" id="timer-countdown-display">01:00</div>
+        <!-- Barra de progreso lineal -->
+        <div class="progress mt-3" style="height: 6px; background-color: rgba(255,255,255,0.1);">
+          <div class="progress-bar bg-gold transition-fast" id="timer-progress-bar" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- Resumen de Datos -->
+      <div class="p-3 bg-surface rounded-3 border-subtle mb-4">
+        <div class="row g-2 small">
+          <div class="col-6 text-muted">Titular:</div>
+          <div class="col-6 fw-bold text-end" id="timer-res-nombre">—</div>
+
+          <div class="col-6 text-muted">Fecha y Hora:</div>
+          <div class="col-6 fw-bold text-end"><span id="timer-res-fecha">—</span> a las <span id="timer-res-hora">—</span></div>
+
+          <div class="col-6 text-muted">Comensales:</div>
+          <div class="col-6 fw-bold text-end" id="timer-res-personas">—</div>
+
+          <div class="col-6 text-muted">Tipo de Mesa:</div>
+          <div class="col-6 fw-bold text-end" id="timer-res-tipo">—</div>
+
+          <div class="col-6 text-muted">Zona Asignada:</div>
+          <div class="col-6 fw-bold text-end text-gold" id="timer-res-zona">—</div>
+
+          <div class="col-6 text-muted">Ocasión:</div>
+          <div class="col-6 fw-bold text-end" id="timer-res-ocasion">—</div>
+        </div>
+      </div>
+
+      <div class="d-flex gap-3">
+        <button type="button" class="btn btn-outline-secondary w-50" id="btn-timer-cancelar">
+          <i class="bi bi-x-circle me-1"></i>Cancelar
+        </button>
+        <button type="button" class="btn-gold w-50" id="btn-timer-confirmar">
+          <i class="bi bi-check-circle-fill me-1"></i>Confirmar Reserva
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL DE COMPROBANTE DE RESERVA CONFIRMADA (ÉXITO)
+       ========================================================= -->
+  <div class="modal-custom" id="modal-reserva-exitosa" role="dialog" aria-modal="true">
+    <div class="modal-custom-dialog p-4 p-md-5 text-center" style="max-width: 520px;">
+      <div class="brand-monogram mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.8rem;">
+        <i class="bi bi-check2"></i>
+      </div>
+
+      <span class="text-gold text-uppercase fw-bold small letter-spacing-2">¡Reserva Garantizada!</span>
+      <h3 class="h2 font-serif-title mt-1 mb-2">Te esperamos en AUREA</h3>
+      <p class="text-muted small mb-4">
+        Tu reservación ha sido registrada exitosamente en nuestro sistema administrativo con el siguiente código:
+      </p>
+
+      <div class="p-3 bg-surface border-medium rounded-3 mb-4">
+        <div class="small text-muted mb-1">CÓDIGO ÚNICO DE RESERVA:</div>
+        <div class="h3 font-monospace text-gold mb-2" id="exito-res-codigo">AUR-2026-0000</div>
+        <!-- Código QR Visual de Demostración -->
+        <div class="d-inline-block p-2 bg-white rounded my-2">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ffffff'/><rect x='10' y='10' width='30' height='30' fill='%23000000'/><rect x='15' y='15' width='20' height='20' fill='%23ffffff'/><rect x='60' y='10' width='30' height='30' fill='%23000000'/><rect x='65' y='15' width='20' height='20' fill='%23ffffff'/><rect x='10' y='60' width='30' height='30' fill='%23000000'/><rect x='15' y='65' width='20' height='20' fill='%23ffffff'/><rect x='45' y='20' width='10' height='10' fill='%23000000'/><rect x='50' y='50' width='20' height='20' fill='%23000000'/><rect x='75' y='75' width='15' height='15' fill='%23000000'/></svg>" alt="Código QR Simulado" width="100" height="100" />
+        </div>
+        <div class="small text-muted" id="exito-res-cliente">Cliente</div>
+        <div class="small text-gold" id="exito-res-fecha">Fecha</div>
+        <div class="small text-muted" id="exito-res-mesa">Mesa Asignada</div>
+      </div>
+
+      <button type="button" class="btn-gold w-100" id="btn-exito-aceptar">
+        Entendido, Volver al Sitio
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SECCIÓN 7: ACORDEONES JQUERY (PRÁCTICA DOCENTE)
+       ========================================================= -->
+  <section id="seccion-faq" class="py-5 bg-surface">
+    <div class="container py-lg-4">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="text-gold text-uppercase fw-bold small letter-spacing-2">Guía & Protocolo</span>
+        <h2 class="display-6 fw-bold mt-1 mb-3">Información Gastronómica & Preguntas</h2>
+        <p class="text-muted">
+          Implementación con efectos y selectores jQuery: slideToggle(), click(), addClass(), removeClass() y manipulación dinámica del DOM.
+        </p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="aurea-accordion-group exclusive">
+            <!-- Acordeón 1 -->
+            <div class="aurea-accordion-item">
+              <div class="aurea-accordion-header">
+                <span class="accordion-title fw-bold">
+                  <i class="bi bi-shield-check text-gold me-2"></i>Protocolo de Alérgenos y Celíacos
+                </span>
+                <i class="bi bi-chevron-down accordion-icon"></i>
+              </div>
+              <div class="aurea-accordion-body">
+                Nuestra cocina cuenta con estaciones diferenciadas para la manipulación de harinas y frutos secos. Si posees celiaquía severa o anafilaxia a crustáceos, por favor indícalo en el formulario de reserva para activar el protocolo sanitario especial de nuestro maître.
+              </div>
+            </div>
+
+            <!-- Acordeón 2 -->
+            <div class="aurea-accordion-item">
+              <div class="aurea-accordion-header">
+                <span class="accordion-title fw-bold">
+                  <i class="bi bi-clock-history text-gold me-2"></i>Horarios y Tiempo de Espera
+                </span>
+                <i class="bi bi-chevron-down accordion-icon"></i>
+              </div>
+              <div class="aurea-accordion-body">
+                Atendemos de martes a domingo de 12:00 a 23:30. Los turnos de almuerzo concluyen a las 16:00 y el servicio de cena da inicio a las 19:30. Para menús degustación de 7 tiempos, solicitamos presentarse antes de las 21:00 para garantizar el ritmo adecuado de cada pase.
+              </div>
+            </div>
+
+            <!-- Acordeón 3 -->
+            <div class="aurea-accordion-item">
+              <div class="aurea-accordion-header">
+                <span class="accordion-title fw-bold">
+                  <i class="bi bi-person-badge text-gold me-2"></i>Código de Vestimenta (Dress Code)
+                </span>
+                <i class="bi bi-chevron-down accordion-icon"></i>
+              </div>
+              <div class="aurea-accordion-body">
+                Sugerimos vestimenta casual elegante o formal para acompañar el ambiente sobrio y refinado de AUREA. No se permite el ingreso en indumentaria deportiva ni prendas de playa.
+              </div>
+            </div>
+
+            <!-- Acordeón 4 -->
+            <div class="aurea-accordion-item">
+              <div class="aurea-accordion-header">
+                <span class="accordion-title fw-bold">
+                  <i class="bi bi-car-front text-gold me-2"></i>Servicio de Valet Parking y Cava Privada
+                </span>
+                <i class="bi bi-chevron-down accordion-icon"></i>
+              </div>
+              <div class="aurea-accordion-body">
+                Disponemos de estacionamiento privado con guardia y servicio de Valet Parking de cortesía para todos nuestros comensales. Asimismo, si deseas traer una botella especial de tu colección, contamos con servicio de descorche por Bs. 120 previa coordinación.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECCIÓN 8: NOSOTROS & FILOSOFÍA CULINARIA
+       ========================================================= -->
+  <section id="seccion-nosotros" class="py-5">
+    <div class="container py-lg-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img
+              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80"
+              alt="Ambiente AUREA"
+              class="img-fluid rounded-4 shadow-lg border-subtle"
+            />
+            <div class="position-absolute bottom-0 start-0 m-4 p-3 bg-surface border-medium rounded-3 shadow">
+              <div class="h5 font-serif-title text-gold mb-0">Barrio Equipetrol</div>
+              <div class="small text-muted">Santa Cruz de la Sierra, Bolivia</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <span class="text-gold text-uppercase fw-bold small letter-spacing-2">Legado & Maestría</span>
+          <h2 class="display-5 fw-bold mt-1 mb-3">La Esencia de AUREA</h2>
+          <p class="text-secondary mb-3" style="line-height: 1.7;">
+            Fundado bajo la premisa de que la alta gastronomía no consiste únicamente en alimentar, sino en conmover los sentidos y crear recuerdos imperecederos.
+          </p>
+          <p class="text-secondary mb-4" style="line-height: 1.7;">
+            Fusionamos el rigor técnico europeo con los ingredientes más nobles de la Amazonía y los valles andinos bolivianos: salmón de corrientes frías, carnes maduradas en seco a más de 40 días, café Geisha de Caranavi y chocolates silvestres benianos.
+          </p>
+
+          <div class="d-flex align-items-center gap-3">
+            <div class="brand-monogram">F</div>
+            <div>
+              <div class="fw-bold font-serif-title fs-5">Fernando Arrieta</div>
+              <div class="small text-gold">Chef Ejecutivo & Fundador</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECCIÓN 9: CONTACTO, UBICACIÓN & REDES SOCIALES
+       ========================================================= -->
+  <section id="seccion-contacto" class="py-5 bg-surface">
+    <div class="container py-lg-4">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="text-gold text-uppercase fw-bold small letter-spacing-2">Información & Presencia Digital</span>
+        <h2 class="display-5 fw-bold mt-1 mb-3">Información del Restaurante & Redes</h2>
+        <p class="text-muted">
+          Descubre nuestra ubicación en el prestigioso Barrio Equipetrol, consulta los turnos de servicio y conéctate a través de nuestras redes sociales oficiales.
+        </p>
+      </div>
+
+      <!-- Cuadrícula de 4 Fichas Informativas del Restaurante -->
+      <div class="row g-4 mb-5">
+        <!-- Ficha 1: Horarios de Atención -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-box-highlight h-100 d-flex flex-column">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="feature-icon-wrap" style="width: 44px; height: 44px; font-size: 1.25rem;"><i class="bi bi-clock-history"></i></div>
+              <h5 class="h6 mb-0 text-main font-serif-title">Horarios de Servicio</h5>
+            </div>
+            <ul class="list-unstyled small text-muted mb-0 d-flex flex-column gap-2 flex-grow-1">
+              <li><strong class="text-light d-block">Almuerzos & Carta:</strong> Mar a Vie: 12:00 – 16:00</li>
+              <li><strong class="text-light d-block">Cenas de Autor:</strong> Mar a Sáb: 19:30 – 23:30</li>
+              <li><strong class="text-light d-block">Brunch Dominical:</strong> Dom: 12:00 – 17:30</li>
+              <li class="pt-2 border-top-subtle"><span class="badge bg-dark border border-secondary text-gold">Lunes cerrado</span> <small>(Maduración y huerto)</small></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Ficha 2: Ubicación & Accesos -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-box-highlight h-100 d-flex flex-column">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="feature-icon-wrap" style="width: 44px; height: 44px; font-size: 1.25rem;"><i class="bi bi-geo-alt"></i></div>
+              <h5 class="h6 mb-0 text-main font-serif-title">Ubicación Privilegiada</h5>
+            </div>
+            <div class="small text-muted mb-3 flex-grow-1">
+              <strong class="text-light d-block mb-1">Barrio Equipetrol Norte:</strong>
+              Av. San Martín #1550, entre 3er y 4to Anillo, Santa Cruz de la Sierra, Bolivia.
+            </div>
+            <div class="pt-2 border-top-subtle small text-gold">
+              <i class="bi bi-car-front me-1"></i>Valet Parking y seguridad privada de cortesía.
+            </div>
+          </div>
+        </div>
+
+        <!-- Ficha 3: Canales de Atención & Concierge -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-box-highlight h-100 d-flex flex-column">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="feature-icon-wrap" style="width: 44px; height: 44px; font-size: 1.25rem;"><i class="bi bi-headset"></i></div>
+              <h5 class="h6 mb-0 text-main font-serif-title">Canales Concierge</h5>
+            </div>
+            <div class="small text-muted mb-3 flex-grow-1 d-flex flex-column gap-2">
+              <div>
+                <strong class="text-light d-block">Teléfono de Reservas:</strong>
+                <a href="tel:+59133449800" class="text-decoration-none text-muted">+591 3 344-9800</a>
+              </div>
+              <div>
+                <strong class="text-light d-block">WhatsApp Oficial:</strong>
+                <a href="https://wa.me/59178451230" target="_blank" rel="noopener" class="text-gold text-decoration-none fw-bold">+591 78451230</a>
+              </div>
+              <div>
+                <strong class="text-light d-block">Correo de Atención:</strong>
+                <span class="text-truncate d-block">reservas@aureagastronomy.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ficha 4: Instalaciones & Distinciones -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-box-highlight h-100 d-flex flex-column">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="feature-icon-wrap" style="width: 44px; height: 44px; font-size: 1.25rem;"><i class="bi bi-award"></i></div>
+              <h5 class="h6 mb-0 text-main font-serif-title">Instalaciones & Cava</h5>
+            </div>
+            <ul class="list-unstyled small text-muted mb-0 d-flex flex-column gap-1 flex-grow-1">
+              <li><i class="bi bi-check2 text-gold me-1"></i>Cava privada para 12 comensales.</li>
+              <li><i class="bi bi-check2 text-gold me-1"></i>Servicio de sommelier en sala.</li>
+              <li><i class="bi bi-check2 text-gold me-1"></i>Terraza botánica calefaccionada.</li>
+              <li><i class="bi bi-check2 text-gold me-1"></i>Rampa y acceso universal adaptado.</li>
+              <li><i class="bi bi-check2 text-gold me-1"></i>Wifi de alta velocidad de cortesía.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-5">
+        <!-- Columna Izquierda: Redes Sociales Oficiales y Mapa -->
+        <div class="col-lg-5">
+          <h3 class="h4 font-serif-title mb-3 text-gold">Conéctate en Redes Sociales</h3>
+          <p class="text-muted small mb-4">
+            Sigue nuestras publicaciones gastronómicas, visualiza historias exclusivas del huerto y conoce los especiales del chef antes de cada servicio:
+          </p>
+
+          <!-- Botones Pill de Redes Sociales -->
+          <div class="d-flex flex-column gap-2 mb-4">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-pill" title="Instagram de AUREA">
+              <i class="bi bi-instagram"></i>
+              <div class="flex-grow-1">
+                <strong>Instagram</strong>
+                <span class="d-block small text-muted">@aurea.gastronomy • Fotografías, reels e historias de autor</span>
+              </div>
+              <i class="bi bi-arrow-up-right small"></i>
+            </a>
+
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-pill" title="Facebook de AUREA">
+              <i class="bi bi-facebook"></i>
+              <div class="flex-grow-1">
+                <strong>Facebook</strong>
+                <span class="d-block small text-muted">AUREA Fine Dining Bolivia • Novedades y eventos</span>
+              </div>
+              <i class="bi bi-arrow-up-right small"></i>
+            </a>
+
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-pill" title="TikTok de AUREA">
+              <i class="bi bi-tiktok"></i>
+              <div class="flex-grow-1">
+                <strong>TikTok</strong>
+                <span class="d-block small text-muted">@aureabolivia • Procesos culinarios y detrás de escena</span>
+              </div>
+              <i class="bi bi-arrow-up-right small"></i>
+            </a>
+
+            <a href="https://wa.me/59178451230?text=Hola%20AUREA,%20deseo%20consultar%20sobre%20una%20reserva" target="_blank" rel="noopener" class="social-pill border-medium" title="WhatsApp Concierge">
+              <i class="bi bi-whatsapp text-success"></i>
+              <div class="flex-grow-1">
+                <strong class="text-gold">WhatsApp Concierge</strong>
+                <span class="d-block small text-muted">+591 78451230 • Asistencia personalizada en tiempo real</span>
+              </div>
+              <i class="bi bi-chat-dots-fill text-gold small"></i>
+            </a>
+
+            <div class="social-pill bg-card">
+              <i class="bi bi-trophy text-gold"></i>
+              <div class="flex-grow-1">
+                <strong>Tripadvisor Travellers' Choice 2026</strong>
+                <span class="d-block small text-muted">Calificación 4.9/5 • #1 en Fine Dining en Santa Cruz</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mapa Visual y Cómo Llegar -->
+          <div class="map-card-styled p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-monogram" style="width: 36px; height: 36px; font-size: 1.1rem;"><i class="bi bi-compass"></i></div>
+              <div>
+                <h6 class="mb-0 text-main">¿Cómo llegar a AUREA?</h6>
+                <div class="small text-gold">Barrio Equipetrol Norte, Santa Cruz</div>
+              </div>
+            </div>
+            <p class="small text-muted mb-3">
+              Nos encontramos en la zona gastronómica y corporativa más exclusiva de Santa Cruz, a escasos minutos de los principales hoteles y centros ejecutivos.
+            </p>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline-gold btn-sm w-100">
+              <i class="bi bi-pin-map-fill me-2"></i>Ver Ruta en Google Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Formulario de Contacto Directo -->
+        <div class="col-lg-7">
+          <div class="p-4 p-md-5 rounded-4 bg-card-custom border-subtle h-100">
+            <h3 class="h4 font-serif-title mb-2 text-gold">Formulario de Contacto & Eventos</h3>
+            <p class="small text-muted mb-4">
+              Completa este formulario para consultas sobre eventos privados, catas de vinos o requerimientos corporativos especiales:
+            </p>
+
+            <form id="form-contacto" novalidate>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="contacto-nombre" class="form-label-custom">Nombre Completo *</label>
+                  <input type="text" class="form-control form-control-custom" id="contacto-nombre" placeholder="Ej. Alejandra Peralta" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="contacto-correo" class="form-label-custom">Correo Electrónico *</label>
+                  <input type="email" class="form-control form-control-custom" id="contacto-correo" placeholder="nombre@correo.com" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="contacto-telefono" class="form-label-custom">Celular (Opcional)</label>
+                  <input type="tel" class="form-control form-control-custom" id="contacto-telefono" placeholder="Ej. 71234567">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="contacto-asunto" class="form-label-custom">Asunto *</label>
+                  <input type="text" class="form-control form-control-custom" id="contacto-asunto" placeholder="Ej. Cena ejecutiva, Cava privada..." required>
+                </div>
+                <div class="col-12">
+                  <label for="contacto-mensaje" class="form-label-custom">Mensaje o Requerimiento Especial *</label>
+                  <textarea class="form-control form-control-custom" id="contacto-mensaje" rows="4" placeholder="Describe brevemente la ocasión, fecha estimada y número aproximado de invitados..." required></textarea>
+                </div>
+                <div class="col-12 pt-2">
+                  <button type="submit" class="btn-gold w-100 py-3">
+                    <i class="bi bi-send me-2"></i>Enviar Mensaje al Concierge
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div id="contacto-status-msg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PIE DE PÁGINA (FOOTER)
+       ========================================================= -->
+  <footer class="footer-aurea">
+    <div class="container">
+      <div class="row g-4 justify-content-between mb-5">
+        <!-- Bloque Marca y Redes -->
+        <div class="col-12 col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-monogram">A</div>
+            <div>
+              <span class="brand-name fs-4">AUREA</span>
+              <div class="brand-tagline text-gold">Fine Dining & Gastronomy</div>
+            </div>
+          </div>
+          <p class="small text-muted mb-4">
+            Restaurante de alta cocina contemporánea en Santa Cruz de la Sierra. Menú de autor, cavas seleccionadas, huerto propio y reservaciones con confirmación en tiempo real.
+          </p>
+
+          <!-- Botones de Redes Sociales en Footer -->
+          <div>
+            <span class="small text-muted text-uppercase fw-bold d-block mb-2">Síguenos en Redes Sociales:</span>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram @aurea.gastronomy"><i class="bi bi-instagram"></i></a>
+              <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-btn" title="Facebook AUREA Fine Dining"><i class="bi bi-facebook"></i></a>
+              <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon-btn" title="TikTok @aureabolivia"><i class="bi bi-tiktok"></i></a>
+              <a href="https://wa.me/59178451230" target="_blank" rel="noopener" class="social-icon-btn" title="WhatsApp Concierge"><i class="bi bi-whatsapp"></i></a>
+              <a href="https://tripadvisor.com" target="_blank" rel="noopener" class="social-icon-btn" title="TripAdvisor"><i class="bi bi-trophy"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloque Navegación -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h6 class="text-gold text-uppercase small fw-bold mb-3"><i class="bi bi-compass me-1"></i>Navegación</h6>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="#inicio" class="text-muted">Inicio</a></li>
+            <li><a href="#seccion-carta" class="text-muted">Nuestra Carta</a></li>
+            <li><a href="#seccion-especialidades" class="text-muted">Especialidades</a></li>
+            <li><a href="#seccion-promociones" class="text-muted">Promociones</a></li>
+            <li><a href="#seccion-reservas" class="text-muted">Reservar Mesa</a></li>
+            <li><a href="#seccion-calculadora" class="text-muted">Consumo Estimado</a></li>
+          </ul>
+        </div>
+
+        <!-- Bloque Información del Restaurante -->
+        <div class="col-6 col-md-3 col-lg-3">
+          <h6 class="text-gold text-uppercase small fw-bold mb-3"><i class="bi bi-info-circle me-1"></i>El Restaurante</h6>
+          <ul class="list-unstyled small d-flex flex-column gap-2 text-muted">
+            <li><strong class="text-light">Dirección:</strong> Av. San Martín 1550, Equipetrol</li>
+            <li><strong class="text-light">Atención:</strong> Mar a Dom: 12:00 a 23:30</li>
+            <li><strong class="text-light">Teléfono:</strong> +591 3 344-9800</li>
+            <li><strong class="text-light">WhatsApp:</strong> +591 78451230</li>
+            <li><strong class="text-light">Correo:</strong> reservas@aureagastronomy.com</li>
+          </ul>
+        </div>
+
+        <!-- Bloque Acceso Administrativo -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <h6 class="text-gold text-uppercase small fw-bold mb-3"><i class="bi bi-shield-lock me-1"></i>Gestión Interna</h6>
+          <p class="small text-muted mb-3">
+            Portal administrativo privado para control de reservas, planos de mesas, auditoría de bitácoras y catálogo:
+          </p>
+          <a href="admin.html" class="footer-admin-link">
+            <i class="bi bi-speedometer2 text-gold"></i> Panel de Administración AUREA
+          </a>
+        </div>
+      </div>
+
+      <hr class="border-subtle my-4">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-muted">
+        <div>
+          © 2026 AUREA | Fine Dining & Gastronomy. Proyecto Académico — <strong>Diseño Web II — UPDS</strong>.
+        </div>
+        <div class="d-flex gap-3">
+          <span>HTML5 • CSS3 • jQuery 3.7.1 • LocalStorage</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       CONTENEDOR GLOBAL DE TOASTS
+       ========================================================= -->
+  <div id="toast-container-global" class="toast-container-custom"></div>
+
+  <!-- =========================================================
+       SCRIPTS OBLIGATORIOS (MODULARES)
+       ========================================================= -->
+  <!-- 1. jQuery 3.7.1 CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- 2. Bootstrap 5 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- 3. Módulos JavaScript del Sistema (Orden estricto de dependencias) -->
+  <script src="js/storage.js"></script>
+  <script src="js/bitacoras.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/temporizador.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/filtros.js"></script>
+  <script src="js/reservas.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

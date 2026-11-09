@@ -1,0 +1,189 @@
+/* =========================================================
+   AUREA | Fine Dining & Gastronomy
+   css/temas.css — Paleta Cromática de Lujo, Modo Claro / Oscuro y Tipografías
+   Diseño Web II — UPDS
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,400;1,600;1,700&display=swap');
+
+/* =========================================================
+   MODO NOCHE / OSCURO POR DEFECTO
+   ========================================================= */
+:root {
+  --font-serif-title: 'Playfair Display', Georgia, serif;
+  --font-serif-sub: 'Cormorant Garamond', Garamond, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Fondos Modo Oscuro */
+  --bg-body: #0d0c0b;
+  --bg-surface: #151311;
+  --bg-card: #1a1715;
+  --bg-card-hover: #221e1a;
+  --bg-glass: rgba(18, 16, 14, 0.88);
+  --bg-elevated: #26211c;
+  --bg-overlay: rgba(0, 0, 0, 0.78);
+
+  /* Acentos Cromáticos */
+  --color-gold: #d4af37;
+  --color-gold-hover: #e5c07b;
+  --color-gold-muted: rgba(212, 175, 55, 0.15);
+  --color-gold-glow: rgba(212, 175, 55, 0.35);
+
+  --color-olive: #243528;
+  --color-olive-deep: #162219;
+  --color-espresso: #201712;
+
+  /* Textos Modo Oscuro */
+  --text-main: #f5f2ec;
+  --text-secondary: #c9c1b3;
+  --text-muted: #8e8578;
+  --text-inverse: #0d0c0b;
+
+  /* Bordes y Líneas */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(212, 175, 55, 0.28);
+  --border-gold: #d4af37;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.8);
+  --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.2);
+
+  /* Transiciones */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================================
+   MODO MARFIL / CLARO
+   ========================================================= */
+[data-theme="light"] {
+  /* Fondos Modo Claro */
+  --bg-body: #faf8f5;
+  --bg-surface: #f3eee6;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9f6f0;
+  --bg-glass: rgba(250, 248, 245, 0.92);
+  --bg-elevated: #eae3d6;
+  --bg-overlay: rgba(30, 24, 20, 0.65);
+
+  /* Acentos Modo Claro */
+  --color-gold: #b88a38;
+  --color-gold-hover: #cfa14e;
+  --color-gold-muted: rgba(184, 138, 56, 0.12);
+  --color-gold-glow: rgba(184, 138, 56, 0.25);
+
+  --color-olive: #4a5d4e;
+  --color-olive-deep: #324335;
+  --color-espresso: #2e1a12;
+
+  /* Textos Modo Claro */
+  --text-main: #241c17;
+  --text-secondary: #4f443b;
+  --text-muted: #796d62;
+  --text-inverse: #faf8f5;
+
+  /* Bordes y Líneas */
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(184, 138, 56, 0.3);
+  --border-gold: #b88a38;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+  --shadow-gold: 0 4px 20px rgba(184, 138, 56, 0.15);
+}
+
+/* =========================================================
+   REGLAS GLOBALES DE TEMA
+   ========================================================= */
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+h1, h2, h3, .font-serif-title {
+  font-family: var(--font-serif-title);
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+h4, h5, h6, .font-serif-sub {
+  font-family: var(--font-serif-sub);
+  color: var(--text-main);
+}
+
+p, span, a, input, select, textarea, button {
+  font-family: var(--font-sans);
+}
+
+.text-gold {
+  color: var(--color-gold) !important;
+}
+
+.bg-gold {
+  background-color: var(--color-gold) !important;
+  color: #0d0c0b !important;
+}
+
+.border-gold {
+  border-color: var(--color-gold) !important;
+}
+
+.border-subtle {
+  border-color: var(--border-subtle) !important;
+}
+
+.bg-surface {
+  background-color: var(--bg-surface) !important;
+}
+
+.bg-card-custom {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Enlaces */
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-gold-hover);
+}
+
+/* Selección */
+::selection {
+  background-color: var(--color-gold);
+  color: #0d0c0b;
+}
+
+/* Scrollbar estilizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}

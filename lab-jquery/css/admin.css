@@ -1,0 +1,482 @@
+/* =========================================================
+   AUREA | Fine Dining & Gastronomy
+   css/admin.css — Estilos del Panel Administrativo de Gestión
+   Diseño Web II — UPDS
+   ========================================================= */
+
+/* Layout Principal del Dashboard */
+.admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-body);
+}
+
+/* =========================================================
+   1. SIDEBAR ADMINISTRATIVO
+   ========================================================= */
+.admin-sidebar {
+  width: 270px;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  transition: transform var(--transition-normal);
+}
+
+.admin-sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-sidebar-nav {
+  padding: 1rem 0.75rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.admin-nav-item {
+  margin-bottom: 0.25rem;
+}
+
+.admin-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.admin-nav-link i {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.admin-nav-link:hover {
+  background-color: var(--bg-elevated);
+  color: var(--text-main);
+}
+
+.admin-nav-link:hover i {
+  color: var(--color-gold);
+}
+
+.admin-nav-link.active {
+  background: var(--color-gold-muted);
+  color: var(--color-gold);
+  font-weight: 600;
+  border-left: 3px solid var(--color-gold);
+}
+
+.admin-nav-link.active i {
+  color: var(--color-gold);
+}
+
+.admin-sidebar-footer {
+  padding: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-card);
+}
+
+/* =========================================================
+   2. CONTENIDO PRINCIPAL Y CABECERA
+   ========================================================= */
+.admin-main {
+  margin-left: 270px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.admin-header {
+  height: 72px;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1040;
+}
+
+.admin-content-body {
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+/* =========================================================
+   3. BOTONES GLOBALES DEL ADMIN
+   ========================================================= */
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #b88a38 100%);
+  color: #0d0c0b !important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 1.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-gold);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, var(--color-gold-hover) 0%, var(--color-gold) 100%);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--color-gold) !important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.55rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-gold);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--color-gold-muted);
+  color: var(--color-gold-hover) !important;
+}
+
+/* =========================================================
+   4. FORMULARIOS, INPUTS Y SELECTS
+   ========================================================= */
+.form-label-custom {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.form-control-custom,
+.form-select-custom {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  border-radius: 6px;
+  padding: 0.65rem 0.95rem;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.form-control-custom:focus,
+.form-select-custom:focus {
+  background-color: var(--bg-surface);
+  border-color: var(--color-gold);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-gold-muted);
+  color: var(--text-main);
+}
+
+.form-control-custom::placeholder {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.form-control-custom:disabled,
+.form-select-custom:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Buscador con icono integrado */
+.search-input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-wrap .search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-gold);
+  pointer-events: none;
+}
+
+.search-input-wrap .form-control-custom {
+  padding-left: 2.5rem;
+}
+
+/* Iconos de cabecera y utilidades */
+.btn-icon-nav {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-icon-nav:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background-color: var(--color-gold-muted);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.max-w-700 {
+  max-width: 760px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   5. TARJETAS DE INDICADORES (KPIs)
+   ========================================================= */
+.stat-kpi-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.35rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.stat-kpi-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-medium);
+}
+
+.kpi-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.kpi-icon-gold {
+  background: var(--color-gold-muted);
+  color: var(--color-gold);
+}
+
+.kpi-icon-success {
+  background: rgba(25, 135, 84, 0.15);
+  color: #198754;
+}
+
+.kpi-icon-warning {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+}
+
+.kpi-icon-danger {
+  background: rgba(220, 53, 69, 0.15);
+  color: #dc3545;
+}
+
+.kpi-icon-info {
+  background: rgba(13, 202, 240, 0.15);
+  color: #0dcaf0;
+}
+
+.kpi-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-family: var(--font-serif-title);
+  color: var(--text-main);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.kpi-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   6. TABLAS DE DATOS ADMINISTRATIVAS
+   ========================================================= */
+.table-admin-custom {
+  width: 100%;
+  color: var(--text-main);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-admin-custom th {
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-medium);
+  white-space: nowrap;
+}
+
+.table-admin-custom td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+  font-size: 0.88rem;
+  background-color: var(--bg-card);
+}
+
+.table-admin-custom tr:hover td {
+  background-color: var(--bg-elevated);
+}
+
+/* =========================================================
+   7. TARJETAS DE MESAS
+   ========================================================= */
+.card-mesa-admin {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  transition: all var(--transition-fast);
+}
+
+.card-mesa-admin:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-mesa-admin.mesa-inactiva {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+/* =========================================================
+   8. MODALES DEL PANEL ADMINISTRATIVO
+   ========================================================= */
+.modal-custom {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-overlay);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1080;
+  display: none; /* Oculto por defecto */
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.modal-custom.show {
+  display: flex !important;
+}
+
+.modal-custom-dialog {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  margin: auto;
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.btn-close-modal:hover {
+  background-color: var(--color-gold);
+  color: #0d0c0b;
+}
+
+.form-section-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-top: 0.5rem;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* =========================================================
+   9. RESPONSIVE
+   ========================================================= */
+@media (max-width: 991.98px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .admin-sidebar.show {
+    transform: translateX(0);
+  }
+
+  .admin-main {
+    margin-left: 0;
+  }
+}

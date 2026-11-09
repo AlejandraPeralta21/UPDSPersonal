@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUREA Admin | Panel de Gestión & Auditoría Gastronómica</title>
+  <meta name="description" content="Panel de administración profesional de AUREA — Fine Dining & Gastronomy. Control de reservas, catálogo de platos, plano de mesas, bitácoras de auditoría y estadísticas.">
+
+  <!-- Favicon Monograma SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23171311' stroke='%23d4af37' stroke-width='4'/><text x='50' y='65' font-family='Georgia,serif' font-size='50' font-weight='bold' fill='%23d4af37' text-anchor='middle'>A</text></svg>">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Estilos del Sistema -->
+  <link rel="stylesheet" href="css/temas.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <div class="admin-wrapper">
+    <!-- =========================================================
+         SIDEBAR LATERAL ADMINISTRATIVO
+         ========================================================= -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <!-- Encabezado Sidebar -->
+      <div class="admin-sidebar-header">
+        <div class="brand-monogram" style="width: 38px; height: 38px; font-size: 1.2rem;">A</div>
+        <div>
+          <div class="brand-name fs-5">AUREA</div>
+          <div class="brand-tagline text-gold" style="font-size: 0.65rem;">Management Suite</div>
+        </div>
+      </div>
+
+      <!-- Menú de Navegación del Panel (10 Módulos) -->
+      <nav class="admin-sidebar-nav">
+        <ul class="list-unstyled mb-0">
+          <li class="admin-nav-item">
+            <a href="#" class="admin-nav-link active" data-tab="dashboard">
+              <i class="bi bi-speedometer2"></i> Dashboard
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="#" class="admin-nav-link" data-tab="reservas">
+              <i class="bi bi-calendar2-check"></i> Reservas
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="#" class="admin-nav-link" data-tab="mesas">
+              <i class="bi bi-grid-3x3-gap"></i> Mesas y Disponibilidad
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="#" class="admin-nav-link" data-tab="catalogo">
+              <i class="bi bi-book"></i> Catálogo Gastronómico
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="#" class="admin-nav-link" data-tab="categorias">
+              <i class="bi bi-tags"></i> Categorías & Subcat.
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="#" class="admin-nav-link" data-tab="promociones">
+              <i class="bi bi-ticket-perforated"></i> Promociones
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="#" class="admin-nav-link" data-tab="clientes">
+              <i class="bi bi-people"></i> Clientes
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <!-- Botón Obligatorio de Bitácoras -->
+            <a href="#" class="admin-nav-link" data-tab="bitacoras">
+              <i class="bi bi-journal-text"></i> Bitácoras
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="#" class="admin-nav-link" data-tab="estadisticas">
+              <i class="bi bi-graph-up-arrow"></i> Estadísticas
+            </a>
+          </li>
+          <li class="admin-nav-item">
+            <a href="#" class="admin-nav-link" data-tab="configuracion">
+              <i class="bi bi-gear"></i> Configuración
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Pie de Sidebar -->
+      <div class="admin-sidebar-footer">
+        <a href="index.html" class="btn btn-outline-gold w-100 btn-sm d-flex align-items-center justify-content-center gap-2">
+          <i class="bi bi-arrow-left"></i> Volver a la Web Pública
+        </a>
+      </div>
+    </aside>
+
+    <!-- =========================================================
+         CONTENEDOR PRINCIPAL
+         ========================================================= -->
+    <main class="admin-main">
+      <!-- Encabezado Superior -->
+      <header class="admin-header">
+        <div class="d-flex align-items-center gap-3">
+          <button type="button" class="btn btn-outline-secondary btn-sm d-lg-none" id="btn-toggle-sidebar" aria-label="Alternar sidebar">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <h1 class="h5 mb-0 fw-bold" id="admin-header-title">Panel General de Control</h1>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <!-- Reloj y Fecha en Tiempo Real -->
+          <div class="text-end d-none d-md-block">
+            <div id="admin-live-clock" class="font-monospace fw-bold text-gold" style="font-size: 1.05rem;">00:00:00</div>
+            <div id="admin-live-date" class="small text-muted" style="font-size: 0.75rem;">--</div>
+          </div>
+
+          <div class="vr bg-secondary opacity-25 d-none d-md-block"></div>
+
+          <!-- Selector de Tema -->
+          <button type="button" class="btn-icon-nav" id="btn-admin-theme-toggle" title="Cambiar tema">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+
+          <!-- Perfil Administrador -->
+          <div class="d-flex align-items-center gap-2">
+            <div class="rounded-circle bg-gold text-dark fw-bold d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; font-size: 0.85rem;">
+              AD
+            </div>
+            <div class="d-none d-sm-block text-start">
+              <div class="small fw-bold text-main line-height-1">Administrador UPDS</div>
+              <span class="badge bg-success" style="font-size: 0.65rem;">En línea • Simulación Local</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Cuerpo del Panel de Administración -->
+      <div class="admin-content-body">
+
+        <!-- =====================================================
+             1. VISTA DASHBOARD
+             ===================================================== -->
+        <section id="view-dashboard" class="admin-view-section">
+          <!-- Grid de KPIs Dinámicos -->
+          <div class="row g-3 mb-4">
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="stat-kpi-card">
+                <div class="kpi-icon-wrap kpi-icon-gold"><i class="bi bi-calendar-event"></i></div>
+                <div>
+                  <div class="kpi-value" id="stat-total-reservas">0</div>
+                  <div class="kpi-label">Reservas Totales</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="stat-kpi-card">
+                <div class="kpi-icon-wrap kpi-icon-success"><i class="bi bi-check2-circle"></i></div>
+                <div>
+                  <div class="kpi-value text-success" id="stat-confirmadas">0</div>
+                  <div class="kpi-label">Confirmadas</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="stat-kpi-card">
+                <div class="kpi-icon-wrap kpi-icon-warning"><i class="bi bi-hourglass-split"></i></div>
+                <div>
+                  <div class="kpi-value text-warning" id="stat-pendientes">0</div>
+                  <div class="kpi-label">Pendientes</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="stat-kpi-card">
+                <div class="kpi-icon-wrap kpi-icon-danger"><i class="bi bi-x-circle"></i></div>
+                <div>
+                  <div class="kpi-value text-danger" id="stat-canceladas">0</div>
+                  <div class="kpi-label">Canceladas</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="stat-kpi-card">
+                <div class="kpi-icon-wrap kpi-icon-info"><i class="bi bi-alarm"></i></div>
+                <div>
+                  <div class="kpi-value" id="stat-expiradas">0</div>
+                  <div class="kpi-label">Expiradas 60s</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="stat-kpi-card">
+                <div class="kpi-icon-wrap kpi-icon-gold"><i class="bi bi-grid-3x3"></i></div>
+                <div>
+                  <div class="kpi-value" id="stat-mesas-disponibles">0/8</div>
+                  <div class="kpi-label">Mesas Activas</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="stat-kpi-card">
+                <div class="kpi-icon-wrap kpi-icon-success"><i class="bi bi-flower1"></i></div>
+                <div>
+                  <div class="kpi-value" id="stat-platos-activos">0</div>
+                  <div class="kpi-label">Platos en Carta</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="stat-kpi-card">
+                <div class="kpi-icon-wrap kpi-icon-info"><i class="bi bi-journal-check"></i></div>
+                <div>
+                  <div class="kpi-value text-gold" id="stat-total-logs">0</div>
+                  <div class="kpi-label">Eventos Bitácora</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <!-- Últimas Reservas -->
+            <div class="col-12 col-xl-8">
+              <div class="card p-4 h-100 bg-card-custom border-subtle">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h5 class="h6 mb-0 text-main"><i class="bi bi-clock-history me-2 text-gold"></i>Últimas Reservas Registradas</h5>
+                  <button class="btn btn-outline-gold btn-sm admin-nav-link p-1 px-2" data-tab="reservas">Ver todas</button>
+                </div>
+                <div class="table-responsive">
+                  <table class="table-admin-custom">
+                    <thead>
+                      <tr>
+                        <th>Código</th>
+                        <th>Cliente</th>
+                        <th>Fecha / Hora</th>
+                        <th>Personas</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="dashboard-ultimas-reservas">
+                      <!-- Inyectado dinámicamente -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actividad Reciente de Bitácoras -->
+            <div class="col-12 col-xl-4">
+              <div class="card p-4 h-100 bg-card-custom border-subtle">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h5 class="h6 mb-0 text-main"><i class="bi bi-activity me-2 text-gold"></i>Actividad Reciente</h5>
+                  <button class="btn btn-outline-gold btn-sm admin-nav-link p-1 px-2" data-tab="bitacoras">Auditoría</button>
+                </div>
+                <div id="dashboard-actividad-reciente">
+                  <!-- Inyectado por js/admin.js -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             2. VISTA RESERVAS
+             ===================================================== -->
+        <section id="view-reservas" class="admin-view-section" style="display: none;">
+          <div class="card p-4 bg-card-custom border-subtle mb-4">
+            <!-- Barra de Filtros de Reservas -->
+            <div class="row g-3 align-items-end mb-3">
+              <div class="col-12 col-md-3">
+                <label class="form-label-custom">Buscar Cliente / Código</label>
+                <input type="text" class="form-control form-control-custom" id="filtro-res-buscar" placeholder="Ej. Alejandro o AUR-...">
+              </div>
+              <div class="col-6 col-md-3">
+                <label class="form-label-custom">Estado</label>
+                <select class="form-select form-select-custom" id="filtro-res-estado">
+                  <option value="todos">Todos los Estados</option>
+                  <option value="CONFIRMADA">Confirmadas</option>
+                  <option value="PENDIENTE">Pendientes</option>
+                  <option value="CANCELADA">Canceladas</option>
+                  <option value="EXPIRADA">Expiradas</option>
+                </select>
+              </div>
+              <div class="col-6 col-md-3">
+                <label class="form-label-custom">Zona</label>
+                <select class="form-select form-select-custom" id="filtro-res-zona">
+                  <option value="todos">Todas las Zonas</option>
+                  <option value="Salón principal">Salón principal</option>
+                  <option value="Terraza">Terraza</option>
+                  <option value="Área privada">Área privada</option>
+                  <option value="Zona VIP">Zona VIP</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-3">
+                <label class="form-label-custom">Fecha Específica</label>
+                <input type="date" class="form-control form-control-custom" id="filtro-res-fecha">
+              </div>
+            </div>
+
+            <!-- Tabla de Reservas -->
+            <div class="table-responsive">
+              <table class="table-admin-custom">
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Cliente</th>
+                    <th>Teléfono</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Comensales</th>
+                    <th>Mesa</th>
+                    <th>Zona</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-reservas-body">
+                  <!-- Inyectado por js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             3. VISTA MESAS Y DISPONIBILIDAD
+             ===================================================== -->
+        <section id="view-mesas" class="admin-view-section" style="display: none;">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <h4 class="h5 mb-1">Plano de Mesas y Distribución</h4>
+              <p class="text-muted small mb-0">Control de capacidad, zonas activas y reservas del día.</p>
+            </div>
+          </div>
+
+          <div class="row g-4" id="grid-mesas-admin">
+            <!-- Inyectado por js/admin.js -->
+          </div>
+        </section>
+
+        <!-- =====================================================
+             4. VISTA CATÁLOGO GASTRONÓMICO (CRUD)
+             ===================================================== -->
+        <section id="view-catalogo" class="admin-view-section" style="display: none;">
+          <div class="card p-4 bg-card-custom border-subtle mb-4">
+            <div class="row g-3 align-items-center justify-content-between mb-4">
+              <div class="col-12 col-md-5">
+                <div class="search-input-wrap">
+                  <i class="bi bi-search search-icon"></i>
+                  <input type="text" class="form-control form-control-custom" id="admin-catalogo-buscar" placeholder="Buscar plato por nombre o descripción...">
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <select class="form-select form-select-custom" id="admin-catalogo-filtro-cat">
+                  <option value="todas">Todas las categorías</option>
+                  <option value="entradas">Entradas</option>
+                  <option value="platos-fuertes">Platos fuertes</option>
+                  <option value="carnes-parrillas">Carnes y parrillas</option>
+                  <option value="pastas">Pastas</option>
+                  <option value="pizzas">Pizzas</option>
+                  <option value="hamburguesas">Hamburguesas</option>
+                  <option value="ensaladas">Ensaladas</option>
+                  <option value="vegetariana">Comida vegetariana</option>
+                  <option value="postres">Postres</option>
+                  <option value="bebidas">Bebidas</option>
+                  <option value="desayunos">Desayunos</option>
+                  <option value="especialidades">Especialidades del chef</option>
+                </select>
+              </div>
+
+              <div class="col-6 col-md-3 text-end">
+                <button type="button" class="btn btn-gold w-100" id="btn-abrir-modal-nuevo-plato">
+                  <i class="bi bi-plus-lg me-1"></i>Nuevo Plato
+                </button>
+              </div>
+            </div>
+
+            <!-- Tabla CRUD Catálogo -->
+            <div class="table-responsive">
+              <table class="table-admin-custom">
+                <thead>
+                  <tr>
+                    <th>Foto</th>
+                    <th>Plato</th>
+                    <th>Categoría / Subcat</th>
+                    <th>Precio</th>
+                    <th>Tiempo</th>
+                    <th>Etiqueta</th>
+                    <th>Disponibilidad</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-catalogo-admin-body">
+                  <!-- Inyectado por js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             5. VISTA CATEGORÍAS Y SUBCATEGORÍAS
+             ===================================================== -->
+        <section id="view-categorias" class="admin-view-section" style="display: none;">
+          <div class="mb-4">
+            <h4 class="h5 mb-1">Estructura de Categorías y Subcategorías</h4>
+            <p class="text-muted small mb-0">Jerarquía culinaria de los 12 módulos de la carta.</p>
+          </div>
+
+          <div class="row g-4" id="container-categorias-admin">
+            <!-- Inyectado por js/admin.js -->
+          </div>
+        </section>
+
+        <!-- =====================================================
+             6. VISTA PROMOCIONES
+             ===================================================== -->
+        <section id="view-promociones" class="admin-view-section" style="display: none;">
+          <div class="mb-4">
+            <h4 class="h5 mb-1">Promociones y Descuentos</h4>
+            <p class="text-muted small mb-0">Administra ofertas activas, vigencias y condiciones.</p>
+          </div>
+
+          <div class="row g-4" id="grid-promociones-admin">
+            <!-- Inyectado por js/admin.js -->
+          </div>
+        </section>
+
+        <!-- =====================================================
+             7. VISTA CLIENTES
+             ===================================================== -->
+        <section id="view-clientes" class="admin-view-section" style="display: none;">
+          <div class="card p-4 bg-card-custom border-subtle">
+            <h4 class="h5 mb-3">Directorio de Comensales</h4>
+            <div class="table-responsive">
+              <table class="table-admin-custom">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electrónico</th>
+                    <th>Teléfono</th>
+                    <th>Reservas Realizadas</th>
+                    <th>Consumo Estimado Acumulado</th>
+                    <th>Última Visita Registrada</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-clientes-admin-body">
+                  <!-- Inyectado por js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             8. VISTA BITÁCORAS DE AUDITORÍA (MÓDULO OBLIGATORIO)
+             ===================================================== -->
+        <section id="view-bitacoras" class="admin-view-section" style="display: none;">
+          <div class="card p-4 bg-card-custom border-subtle mb-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+              <div>
+                <h4 class="h5 mb-1"><i class="bi bi-journal-text me-2 text-gold"></i>Bitácoras de Auditoría y Eventos</h4>
+                <p class="text-muted small mb-0">Registro histórico inmutable de interacciones, validaciones, errores y acciones administrativas.</p>
+              </div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-outline-gold btn-sm" id="btn-exportar-csv">
+                  <i class="bi bi-file-earmark-spreadsheet me-1"></i>Exportar CSV
+                </button>
+                <button type="button" class="btn btn-outline-gold btn-sm" id="btn-exportar-json">
+                  <i class="bi bi-filetype-json me-1"></i>Exportar JSON
+                </button>
+                <button type="button" class="btn btn-outline-danger btn-sm" id="btn-limpiar-bitacoras">
+                  <i class="bi bi-trash me-1"></i>Limpiar Historial
+                </button>
+              </div>
+            </div>
+
+            <!-- Métricas de Bitácora -->
+            <div class="row g-3 mb-4">
+              <div class="col-6 col-md-3">
+                <div class="p-3 bg-surface rounded-3 border-subtle text-center">
+                  <div class="h4 mb-0 text-gold fw-bold" id="bit-stats-total">0</div>
+                  <div class="small text-muted">Eventos Totales</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="p-3 bg-surface rounded-3 border-subtle text-center">
+                  <div class="h4 mb-0 text-success fw-bold" id="bit-stats-exitosos">0</div>
+                  <div class="small text-muted">Exitosos</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="p-3 bg-surface rounded-3 border-subtle text-center">
+                  <div class="h4 mb-0 text-danger fw-bold" id="bit-stats-fallidos">0</div>
+                  <div class="small text-muted">Fallidos / Errores</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="p-3 bg-surface rounded-3 border-subtle text-center">
+                  <div class="h4 mb-0 text-warning fw-bold" id="bit-stats-cancelados">0</div>
+                  <div class="small text-muted">Cancelados / Expirados</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filtros de Bitácoras -->
+            <div class="row g-3 align-items-end mb-4">
+              <div class="col-12 col-md-4">
+                <label class="form-label-custom">Buscar Término</label>
+                <input type="text" class="form-control form-control-custom" id="filtro-bit-buscar" placeholder="ID, acción o descripción...">
+              </div>
+              <div class="col-6 col-md-2">
+                <label class="form-label-custom">Módulo</label>
+                <select class="form-select form-select-custom" id="filtro-bit-modulo">
+                  <option value="todos">Todos los Módulos</option>
+                  <option value="Reservas">Reservas</option>
+                  <option value="Catálogo">Catálogo</option>
+                  <option value="Filtros">Filtros</option>
+                  <option value="Navegación">Navegación</option>
+                  <option value="Tema">Tema</option>
+                  <option value="Contacto">Contacto</option>
+                  <option value="Administración">Administración</option>
+                  <option value="Bitácoras">Bitácoras</option>
+                </select>
+              </div>
+              <div class="col-6 col-md-2">
+                <label class="form-label-custom">Resultado</label>
+                <select class="form-select form-select-custom" id="filtro-bit-resultado">
+                  <option value="todos">Todos los Resultados</option>
+                  <option value="EXITOSO">EXITOSO</option>
+                  <option value="FALLIDO">FALLIDO</option>
+                  <option value="CANCELADO">CANCELADO</option>
+                  <option value="EXPIRADO">EXPIRADO</option>
+                  <option value="INFO">INFO</option>
+                </select>
+              </div>
+              <div class="col-6 col-md-2">
+                <label class="form-label-custom">Origen</label>
+                <select class="form-select form-select-custom" id="filtro-bit-origen">
+                  <option value="todos">Todos los Orígenes</option>
+                  <option value="Cliente">Cliente</option>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Sistema">Sistema</option>
+                </select>
+              </div>
+              <div class="col-6 col-md-2">
+                <label class="form-label-custom">Orden</label>
+                <select class="form-select form-select-custom" id="filtro-bit-orden">
+                  <option value="reciente">Más recientes</option>
+                  <option value="antiguo">Más antiguos</option>
+                </select>
+              </div>
+
+              <!-- Rango de Fechas -->
+              <div class="col-6 col-md-3">
+                <label class="form-label-custom">Fecha Desde</label>
+                <input type="date" class="form-control form-control-custom" id="filtro-bit-fecha-desde">
+              </div>
+              <div class="col-6 col-md-3">
+                <label class="form-label-custom">Fecha Hasta</label>
+                <input type="date" class="form-control form-control-custom" id="filtro-bit-fecha-hasta">
+              </div>
+            </div>
+
+            <!-- Tabla de Bitácoras -->
+            <div class="table-responsive mb-3">
+              <table class="table-admin-custom">
+                <thead>
+                  <tr>
+                    <th>ID Evento</th>
+                    <th>Fecha / Hora</th>
+                    <th>Origen</th>
+                    <th>Módulo</th>
+                    <th>Acción</th>
+                    <th>Descripción</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-bitacoras-body">
+                  <!-- Inyectado por js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Paginación -->
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="small text-muted" id="bit-paginacion-info">Página 1 de 1</span>
+              <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-outline-secondary" id="btn-bit-prev"><i class="bi bi-chevron-left me-1"></i>Anterior</button>
+                <button type="button" class="btn btn-outline-secondary" id="btn-bit-next">Siguiente<i class="bi bi-chevron-right ms-1"></i></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             9. VISTA ESTADÍSTICAS
+             ===================================================== -->
+        <section id="view-estadisticas" class="admin-view-section" style="display: none;">
+          <div class="row g-4">
+            <div class="col-12 col-lg-6">
+              <div class="card p-4 bg-card-custom border-subtle h-100">
+                <h5 class="h6 mb-3 text-gold"><i class="bi bi-geo-alt me-2"></i>Demanda de Reservas por Zona</h5>
+                <div id="stats-zonas-bars"></div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card p-4 bg-card-custom border-subtle h-100">
+                <h5 class="h6 mb-3 text-gold"><i class="bi bi-pie-chart me-2"></i>Distribución de Estados de Reserva</h5>
+                <div id="stats-estados-bars"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =====================================================
+             10. VISTA CONFIGURACIÓN
+             ===================================================== -->
+        <section id="view-configuracion" class="admin-view-section" style="display: none;">
+          <div class="card p-4 bg-card-custom border-subtle max-w-700">
+            <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom-subtle">
+              <div>
+                <h5 class="h6 mb-1 text-gold"><i class="bi bi-sliders me-2"></i>Parámetros del Establecimiento</h5>
+                <p class="small text-muted mb-0">Configura los datos del restaurante, horarios y capacidad.</p>
+              </div>
+            </div>
+
+            <form id="form-configuracion">
+              <!-- Sección 1: Identidad y Contacto -->
+              <div class="form-section-title"><i class="bi bi-shop text-gold"></i> 1. Identidad y Canales de Contacto</div>
+              <div class="row g-3 mb-3">
+                <div class="col-12">
+                  <label class="form-label-custom">Nombre del Restaurante *</label>
+                  <input type="text" class="form-control form-control-custom" id="cfg-nombre" placeholder="AUREA | Fine Dining & Gastronomy" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom">Teléfono Fijo / Reservas</label>
+                  <input type="text" class="form-control form-control-custom" id="cfg-telefono" placeholder="+591 3 344-9800">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom">WhatsApp Concierge</label>
+                  <input type="text" class="form-control form-control-custom" id="cfg-whatsapp" placeholder="+591 78451230">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom">Correo Electrónico Oficial</label>
+                  <input type="email" class="form-control form-control-custom" id="cfg-correo" placeholder="reservas@aureagastronomy.com">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom">Dirección Física</label>
+                  <input type="text" class="form-control form-control-custom" id="cfg-direccion" placeholder="Av. San Martín 1550, Equipetrol, Santa Cruz">
+                </div>
+              </div>
+
+              <!-- Sección 2: Horarios y Capacidad -->
+              <div class="form-section-title mt-4"><i class="bi bi-clock-history text-gold"></i> 2. Horarios de Operación y Aforo Máximo</div>
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-md-4">
+                  <label class="form-label-custom">Hora de Apertura</label>
+                  <input type="time" class="form-control form-control-custom" id="cfg-apertura">
+                </div>
+                <div class="col-6 col-md-4">
+                  <label class="form-label-custom">Hora de Cierre</label>
+                  <input type="time" class="form-control form-control-custom" id="cfg-cierre">
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label-custom">Aforo Máximo (personas)</label>
+                  <input type="number" class="form-control form-control-custom" id="cfg-capacidad" min="10" max="200" placeholder="48">
+                </div>
+              </div>
+
+              <div class="pt-2 border-top-subtle d-flex justify-content-end">
+                <button type="submit" class="btn btn-gold px-4 py-2">
+                  <i class="bi bi-save me-2"></i>Guardar Parámetros
+                </button>
+              </div>
+            </form>
+
+            <hr class="border-subtle my-4">
+
+            <!-- Card de Restablecimiento Semilla -->
+            <div class="p-3 bg-elevated rounded-3 border-subtle">
+              <div class="d-flex align-items-center gap-2 mb-1">
+                <i class="bi bi-exclamation-triangle text-danger fs-5"></i>
+                <h6 class="text-danger mb-0 fw-bold">Restablecimiento de Fábrica (Modo Demostración UPDS)</h6>
+              </div>
+              <p class="small text-muted mb-3">Si necesitas volver a cargar los datos originales de demostración (20 platos gourmet, 8 mesas, promociones y bitácoras iniciales):</p>
+              <button type="button" class="btn btn-outline-danger btn-sm" id="btn-reset-demo-data">
+                <i class="bi bi-arrow-counterclockwise me-1"></i>Restablecer Todo a Datos Semilla
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- =========================================================
+       MODAL AGREGAR NUEVO PLATO AL CATÁLOGO
+       ========================================================= -->
+  <div class="modal-custom" id="modal-nuevo-plato" role="dialog" aria-modal="true">
+    <div class="modal-custom-dialog p-4 p-md-5">
+      <button type="button" class="btn-close-modal btn-close-modal-plato" aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+
+      <div class="mb-4 pb-2 border-bottom-subtle">
+        <span class="badge bg-gold text-dark text-uppercase fw-bold small px-2 py-1 mb-1">Catálogo Gastronómico</span>
+        <h3 class="h4 font-serif-title text-main mb-1">Añadir Nueva Creación a la Carta</h3>
+        <p class="small text-muted mb-0">Completa la ficha técnica del plato para incorporarlo a la carta pública.</p>
+      </div>
+
+      <form id="form-nuevo-plato">
+        <!-- Bloque 1: Información Principal -->
+        <div class="form-section-title"><i class="bi bi-info-circle text-gold"></i> 1. Información Principal</div>
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-md-8">
+            <label class="form-label-custom">Nombre del Plato *</label>
+            <input type="text" class="form-control form-control-custom" id="nplato-nombre" placeholder="Ej. Risotto Trufado de Setas Andinas" required>
+          </div>
+          <div class="col-12 col-md-4">
+            <label class="form-label-custom">Precio (Bs.) *</label>
+            <input type="number" class="form-control form-control-custom" id="nplato-precio" min="10" max="1500" step="5" placeholder="110" required>
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label-custom">Categoría *</label>
+            <select class="form-select form-select-custom" id="nplato-categoria" required>
+              <option value="entradas">Entradas</option>
+              <option value="platos-fuertes">Platos fuertes</option>
+              <option value="carnes-parrillas">Carnes y parrillas</option>
+              <option value="pastas">Pastas</option>
+              <option value="pizzas">Pizzas</option>
+              <option value="hamburguesas">Hamburguesas</option>
+              <option value="ensaladas">Ensaladas</option>
+              <option value="vegetariana">Comida vegetariana</option>
+              <option value="postres">Postres</option>
+              <option value="bebidas">Bebidas</option>
+              <option value="desayunos">Desayunos</option>
+              <option value="especialidades">Especialidades del chef</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label-custom">Subcategoría *</label>
+            <input type="text" class="form-control form-control-custom" id="nplato-subcategoria" placeholder="Ej. Gourmet, Cortes premium, Risottos..." required>
+          </div>
+        </div>
+
+        <!-- Bloque 2: Textos y Fotografía -->
+        <div class="form-section-title"><i class="bi bi-card-text text-gold"></i> 2. Textos y Fotografía</div>
+        <div class="row g-3 mb-3">
+          <div class="col-12">
+            <label class="form-label-custom">URL de Fotografía en Alta Resolución</label>
+            <input type="url" class="form-control form-control-custom" id="nplato-img" placeholder="https://images.unsplash.com/photo-...">
+          </div>
+          <div class="col-12">
+            <label class="form-label-custom">Descripción Corta (Tarjeta) *</label>
+            <textarea class="form-control form-control-custom" id="nplato-desc" rows="2" placeholder="Resumen conciso y apetecible para la tarjeta de la carta..." required></textarea>
+          </div>
+          <div class="col-12">
+            <label class="form-label-custom">Descripción Larga Gastronómica (Modal de Detalle)</label>
+            <textarea class="form-control form-control-custom" id="nplato-desc-larga" rows="2" placeholder="Detalles de la técnica culinaria, origen de insumos y notas de cata..."></textarea>
+          </div>
+        </div>
+
+        <!-- Bloque 3: Ficha Técnica Culinaria -->
+        <div class="form-section-title"><i class="bi bi-basket text-gold"></i> 3. Ficha Técnica Culinaria</div>
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-md-7">
+            <label class="form-label-custom">Ingredientes Principales (Separados por coma)</label>
+            <input type="text" class="form-control form-control-custom" id="nplato-ingredientes" placeholder="Lomo de res, Aceite de trufa, Parmesano DOP...">
+          </div>
+          <div class="col-12 col-md-5">
+            <label class="form-label-custom">Alérgenos (Separados por coma)</label>
+            <input type="text" class="form-control form-control-custom" id="nplato-alergenos" placeholder="Lácteos, Gluten, Frutos secos...">
+          </div>
+          <div class="col-6 col-md-4">
+            <label class="form-label-custom">Tiempo de Preparación</label>
+            <input type="text" class="form-control form-control-custom" id="nplato-tiempo" placeholder="Ej. 20 min">
+          </div>
+          <div class="col-6 col-md-4">
+            <label class="form-label-custom">Nivel de Picante</label>
+            <select class="form-select form-select-custom" id="nplato-picante">
+              <option value="0">0 — Sin picante</option>
+              <option value="1">1 — Suave</option>
+              <option value="2">2 — Medio</option>
+              <option value="3">3 — Intenso</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-4">
+            <label class="form-label-custom">Tamaño o Porción</label>
+            <input type="text" class="form-control form-control-custom" id="nplato-porcion" placeholder="Ej. 280g — Individual">
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label-custom">Etiqueta Especial</label>
+            <select class="form-select form-select-custom" id="nplato-etiqueta">
+              <option value="">Sin etiqueta</option>
+              <option value="Popular">Popular</option>
+              <option value="Nuevo">Nuevo</option>
+              <option value="Especialidad">Especialidad</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label-custom">Recomendación del Chef</label>
+            <input type="text" class="form-control form-control-custom" id="nplato-chef" placeholder="Maridaje sugerido o forma de consumo...">
+          </div>
+        </div>
+
+        <!-- Bloque 4: Preferencias -->
+        <div class="form-section-title"><i class="bi bi-check2-square text-gold"></i> 4. Atributos Adicionales</div>
+        <div class="row g-3 mb-4">
+          <div class="col-12 d-flex gap-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="nplato-veggie">
+              <label class="form-check-label small" for="nplato-veggie">
+                <i class="bi bi-flower1 text-success me-1"></i>Plato Vegetariano
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="nplato-destacado" checked>
+              <label class="form-check-label small" for="nplato-destacado">
+                <i class="bi bi-star text-gold me-1"></i>Destacar en la Carta
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="d-flex justify-content-end gap-2 pt-3 border-top-subtle">
+          <button type="button" class="btn btn-outline-secondary btn-close-modal-plato px-4">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-gold px-4">
+            <i class="bi bi-check-lg me-1"></i>Guardar Plato en la Carta
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/bitacoras.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    $(document).ready(function() {
+      AUREA.Admin.init();
+    });
+  </script>
+</body>
+</html>
